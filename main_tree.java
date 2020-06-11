@@ -1,3 +1,8 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+
 public class main_tree{
 
 
@@ -264,6 +269,33 @@ public class main_tree{
 
 		main_tree bt = new main_tree();
 		int count_Children, count_Depth;
+
+		if(0 < args.length)
+		{
+			try
+			{
+				String filename = args[0];
+
+				System.out.println(filename+" contains:");
+
+				File file = new File(filename);
+				System.out.println(filename+" contains:");
+				Scanner bonobo = new Scanner(file);
+
+
+				while(bonobo.hasNextLine())
+				{
+					String data = bonobo.nextLine();
+					System.out.println(data);
+				}
+				
+				bonobo.close();
+			}catch (FileNotFoundException e){System.out.println("FILE NOT FOUND");}
+
+		
+		}
+
+
 
 		//adding nodes..
 		bt.insert(888);
